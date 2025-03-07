@@ -1,0 +1,17 @@
+from collections import Counter
+
+def analysisdecrypt(cipher_text):
+      freq_eng = "ETAOINSHRDLCUMWFGYPBVKJXQZ"
+
+    counter = Counter(cipher_text)
+        sorted_letters = [char for char, _ in counter.most_common() if char.isalpha()]
+    mapping = {sorted_letters[i]: freqeng[i].lower() for i in range(min(len(sorted_letters), len(freq_eng)))}
+
+    
+         decryptedtext = "".join(mapping[char] if char in mapping else char for char in cipher_text)
+
+    return decrypted_text
+
+cipher_text = ""  
+decrypted_text = frequency_analysis_decrypt(cipher_text)
+print("the crypto of the text:", decryptedtext)
