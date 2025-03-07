@@ -1,0 +1,17 @@
+def bruteforce(cipher_text):
+    alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+    for shift in range(1, 26):  
+        decrypted_text = ""
+
+        for char in cipher_text:
+            if char.upper() in alphabet: 
+                new_index = (alphabet.index(char.upper()) - shift) % 26
+                new_char = alphabet[new_index]
+                decrypted_text += new_char.lower() if char.islower() else new_char
+            else:
+                decrypted_text += char  
+
+        print(f"Shift {shift}: {decrypted_text}")
+cipher_text = "" 
+bruteforce(cipher_text)
